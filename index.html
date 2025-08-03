@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Engineering Qualifications Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #003366;
+            --secondary: #6699CC;
+            --accent: #FF6600;
+            --light: #F5F7FA;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://placehold.co/600x400?text=Circuit+BG') center/cover no-repeat;
+            opacity: 0.1;
+        }
+        
+        /* Card Animation */
+        .card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Certificate Verification */
+        .cert-form {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1);
+        }
+        
+        .cert-result {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Logo */
+        .logo-container {
+            background: var(--primary);
+            border-radius: 8px;
+            padding: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar text-white py-4 px-6 lg:px-12">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="logo-container">
+                <i class="fas fa-bolt logo-icon"></i>
+                <span class="logo-text">UK Engineering Validation</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="nav-link text-white hover:text-orange-300 transition" onclick="showSection('home')">Home</a>
+                <a href="#" class="nav-link text-white hover:text-orange-300 transition" onclick="showSection('about')">About</a>
+                <a href="#" class="nav-link text-white hover:text-orange-300 transition" onclick="showSection('verify')">Verify Certificate</a>
+            </div>
+            <button class="md:hidden text-white focus:outline-none" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-blue-900 p-4">
+            <a href="#" class="block py-2 text-white hover:text-orange-300" onclick="showSection('home')">Home</a>
+            <a href="#" class="block py-2 text-white hover:text-orange-300" onclick="showSection('about')">About</a>
+            <a href="#" class="block py-2 text-white hover:text-orange-300" onclick="showSection('verify')">Verify Certificate</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section py-12 px-4 md:px-0">
+        <div class="container mx-auto">
+            <!-- Hero Section -->
+            <div class="hero rounded-lg overflow-hidden mb-16">
+                <div class="hero-content py-20 px-8 text-center relative">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">UK Electrical Engineering Qualifications Verification</h1>
+                    <p class="text-xl mb-8 max-w-3xl mx-auto">Verify academic credentials of electrical engineering graduates from accredited UK institutions</p>
+                    <button onclick="showSection('verify')" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105">
+                        Verify Certificate
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="card bg-white p-6 rounded-lg">
+                    <div class="text-blue-700 mb-4">
+                        <i class="fas fa-shield-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Secure Verification</h3>
+                    <p>Our system ensures the authenticity of electrical engineering qualifications through advanced validation protocols.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg">
+                    <div class="text-blue-700 mb-4">
+                        <i class="fas fa-university text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Accredited Institutions</h3>
+                    <p>Connecting employers to graduates from UK's top electrical engineering programs.</p>
+                </div>
+                <div class="card bg-white p-6 rounded-lg">
+                    <div class="text-blue-700 mb-4">
+                        <i class="fas fa-bolt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Industry Standard</h3>
+                    <p>Recognized by engineering firms across the United Kingdom as a trusted verification source.</p>
+                </div>
+            </div>
+            
+            <!-- Engineering Showcase -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-center mb-12">Meet Our Electrical Engineering Graduates</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card bg-white rounded-lg overflow-hidden">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Female electrical engineer in safety gear inspecting industrial control panel" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Sophia Chen</h3>
+                            <p class="text-blue-700 mb-3">BEng Electrical Engineering</p>
+                            <p>University of Manchester graduate specializing in power systems engineering.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-white rounded-lg overflow-hidden">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Male engineer working on renewable energy solar panel installation project" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">James Wilson</h3>
+                            <p class="text-blue-700 mb-3">MSc Electrical and Electronic Engineering</p>
+                            <p>Imperial College London graduate focused on renewable energy systems.</p>
+                        </div>
+                    </div>
+                    <div class="card bg-white rounded-lg overflow-hidden">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Senior engineer teaching students about circuit design in university lab" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Professor David Brown</h3>
+                            <p class="text-blue-700 mb-3">PhD Electrical Engineering</p>
+                            <p>University of Cambridge scholar with 20+ years in semiconductor research.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- How it Works -->
+            <div class="bg-blue-50 p-8 rounded-lg mb-16">
+                <h2 class="text-3xl font-bold text-center mb-8">How Certificate Verification Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-4 text-2xl font-bold">1</div>
+                        <h3 class="text-xl font-bold mb-2">Enter Certificate Number</h3>
+                        <p>Locate the unique certificate number on the diploma or degree document.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-4 text-2xl font-bold">2</div>
+                        <h3 class="text-xl font-bold mb-2">Submit Verification Request</h3>
+                        <p>Our system searches our secure database of UK engineering qualifications.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-4 text-2xl font-bold">3</div>
+                        <h3 class="text-xl font-bold mb-2">Receive Verified Results</h3>
+                        <p>View authenticated certificate details including institution and graduation date.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section py-12 px-4 md:px-0 hidden">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">About UK Engineering Validation</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">The official verification platform for UK electrical engineering qualifications</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Our Mission</h3>
+                    <p class="mb-6">We provide secure, instant verification of electrical engineering qualifications awarded by accredited UK institutions to combat credential fraud and maintain industry standards.</p>
+                    <p>Our database connects directly to university records to ensure employers can confidently verify applicant qualifications.</p>
+                </div>
+                <div>
+                    <img src="https://placehold.co/800x500" alt="UK Engineering Validation team meeting in modern office discussing certification processes" class="rounded-lg shadow-lg" />
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <img src="https://placehold.co/800x500" alt="Electrical engineering graduates celebrating degrees at university ceremony" class="rounded-lg shadow-lg" />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Trusted by Industry Leaders</h3>
+                    <p class="mb-6">Over 500 UK engineering firms rely on our verification service when hiring new electrical engineers and technicians.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i>
+                            <span>Verified by Engineering Council UK</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i>
+                            <span>Partnered with UK Accreditation Service</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i>
+                            <span>Recognized by IEEE UK and Ireland</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Accreditation Partners -->
+            <div class="bg-blue-50 p-8 rounded-lg mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8">Our Accreditation Partners</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+                    <img src="https://placehold.co/200x100" alt="Engineering Council UK logo" class="h-16 object-contain" />
+                    <img src="https://placehold.co/200x100" alt="UKAS logo" class="h-16 object-contain" />
+                    <img src="https://placehold.co/200x100" alt="IEEE logo" class="h-16 object-contain" />
+                    <img src="https://placehold.co/200x100" alt="IET logo" class="h-16 object-contain" />
+                </div>
+            </div>
+            
+            <!-- FAQ -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h3>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                            <h4 class="font-bold">Which institutions participate in this verification system?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="mt-3 hidden">
+                            <p>We currently verify qualifications from all JBM-accredited UK electrical engineering programs, including Russell Group universities and accredited technical colleges.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                            <h4 class="font-bold">How current is the verification data?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="mt-3 hidden">
+                            <p>Our system receives monthly updates directly from participating institutions. Typically, graduations are entered within 30 days of degree conferral.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex justify-between items-center cursor-pointer" onclick="toggleFAQ(this)">
+                            <h4 class="font-bold">What information is displayed when verifying a certificate?</h4>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="mt-3 hidden">
+                            <p>The verification displays: graduate's name, institution, degree/diploma title, graduation date, certificate number, and status (active/revoked).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Verification Section -->
+    <section id="verify" class="section py-12 px-4 md:px-0 hidden">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Certificate Verification</h2>
+                <p class="text-xl text-gray-600">Enter the certificate number to verify its authenticity</p>
+            </div>
+            
+            <div class="cert-form p-8 mb-12">
+                <div class="mb-6">
+                    <label for="certNumber" class="block text-gray-700 font-bold mb-2">Certificate Number</label>
+                    <input type="text" id="certNumber" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter 8-digit certificate number">
+                </div>
+                <div class="mb-6">
+                    <label for="graduateName" class="block text-gray-700 font-bold mb-2">Graduate's Full Name (Optional)</label>
+                    <input type="text" id="graduateName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter graduate name for additional verification">
+                </div>
+                <button onclick="verifyCertificate()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                    Verify Certificate
+                </button>
+            </div>
+            
+            <!-- Verification Result - Initially Hidden -->
+            <div id="certResult" class="cert-result hidden bg-white p-8 rounded-lg shadow-lg">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold">Certificate Verification Results</h3>
+                    <div>
+                        <span id="certStatus" class="px-4 py-1 rounded-full text-white font-bold"></span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="border p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-500 mb-2">Certificate Number</h4>
+                        <p id="displayCertNumber" class="text-xl font-bold">-</p>
+                    </div>
+                    <div class="border p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-500 mb-2">Graduate Name</h4>
+                        <p id="displayName" class="text-xl font-bold">-</p>
+                    </div>
+                    <div class="border p-4 rounded-lg">
+                        <h4 class="font-bold text-gray-500 mb-2">Institution</h4>
+                        <p id="displayInstitution" class="text-xl font-bold">-</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-500 mb-2">Degree/Diploma</h4>
+                            <p id="displayDegree" class="text-lg">-</p>
+                        </div>
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-500 mb-2">Specialization</h4>
+                            <p id="displaySpecialization" class="text-lg">-</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-500 mb-2">Graduation Date</h4>
+                            <p id="displayGradDate" class="text-lg">-</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="mb-4">
+                            <h4 class="font-bold text-gray-500 text-center mb-2">Graduate Photo</h4>
+                            <img id="displayPhoto" src="" alt="Verified graduate photo" class="w-48 h-48 object-cover rounded-full border-4 border-blue-200" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t pt-4">
+                    <h4 class="font-bold text-gray-500 mb-2">Official Verification Statement</h4>
+                    <p id="verificationStatement" class="text-lg">-</p>
+                </div>
+                
+                <div class="mt-6 flex justify-end">
+                    <button onclick="printCertificate()" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg mr-4">
+                        <i class="fas fa-print mr-2"></i> Print
+                    </button>
+                    <button onclick="downloadCertificate()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg">
+                        <i class="fas fa-download mr-2"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Verification Help -->
+            <div class="bg-blue-50 p-6 rounded-lg">
+                <h3 class="text-xl font-bold mb-4">Need Help?</h3>
+                <p class="mb-4">The certificate number is found on the bottom right corner of your diploma or degree certificate. It consists of 8 alphanumeric characters.</p>
+                <p>If you're experiencing issues with verification, please contact our support team at <a href="mailto:support@ukengvalidation.edu.uk" class="text-blue-600 hover:underline">support@ukengvalidation.edu.uk</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="logo-container mb-4">
+                        <i class="fas fa-bolt logo-icon"></i>
+                        <span class="logo-text">UK Engineering Validation</span>
+                    </div>
+                    <p class="text-gray-300">The official verification platform for UK electrical engineering qualifications.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" onclick="showSection('home')" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#" onclick="showSection('about')" class="hover:text-white transition">About</a></li>
+                        <li><a href="#" onclick="showSection('verify')" class="hover:text-white transition">Certificate Verification</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
+                            <span>123 Engineering House, London, UK EC1V 7EH</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            <span>+44 20 7123 4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>contact@ukengvalidation.edu.uk</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-white hover:text-blue-400 transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-400 transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-400 transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="#" class="text-white hover:text-blue-400 transition"><i class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                    <p class="text-gray-300 text-sm">© 2023 UK Engineering Validation Ltd. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Certificate database
+        const certificateDatabase = [
+            {
+                certNumber: "EE2023001",
+                name: "Sophia Chen",
+                photo: "https://placehold.co/400x400?text=Sophia+Chen",
+                institution: "University of Manchester",
+                degree: "Bachelor of Engineering in Electrical Engineering",
+                specialization: "Power Systems Engineering",
+                gradDate: "15 July 2023",
+                status: "active"
+            },
+            {
+                certNumber: "EE2023002",
+                name: "James Wilson",
+                photo: "https://placehold.co/400x400?text=James+Wilson",
+                institution: "Imperial College London",
+                degree: "Master of Science in Electrical and Electronic Engineering",
+                specialization: "Renewable Energy Systems",
+                gradDate: "20 June 2023",
+                status: "active"
+            },
+            {
+                certNumber: "EE2022003",
+                name: "Emma Johnson",
+                photo: "https://placehold.co/400x400?text=Emma+Johnson",
+                institution: "University of Edinburgh",
+                degree: "Bachelor of Engineering in Electrical Engineering",
+                specialization: "Control Systems",
+                gradDate: "10 July 2022",
+                status: "active"
+            },
+            {
+                certNumber: "EE2021004",
+                name: "Michael Brown",
+                photo: "https://placehold.co/400x400?text=Michael+Brown",
+                institution: "University of Cambridge",
+                degree: "Doctor of Philosophy in Electrical Engineering",
+                specialization: "Semiconductor Devices",
+                gradDate: "25 June 2021",
+                status: "revoked"
+            },
+            {
+                certNumber: "EE2023005",
+                name: "Olivia Smith",
+                photo: "kaleem.png",
+                institution: "University of Southampton",
+                degree: "Bachelor of Engineering in Electrical Engineering",
+                specialization: "Digital Signal Processing",
+                gradDate: "12 July 2023",
+                status: "active"
+            },
+            {
+                certNumber: "EE2022006",
+                name: "William Taylor",
+                photo: "https://placehold.co/400x400?text=William+Taylor",
+                institution: "University of Bristol",
+                degree: "Master of Engineering in Electrical Engineering",
+                specialization: "High Voltage Engineering",
+                gradDate: "15 June 2022",
+                status: "active"
+            }
+        ];
+
+        // Section navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show requested section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Close mobile menu if open
+            document.getElementById('mobileMenu').classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // FAQ toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            answer.classList.toggle('hidden');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+
+        // Certificate verification
+        function verifyCertificate() {
+            const certNumber = document.getElementById('certNumber').value.trim();
+            const graduateName = document.getElementById('graduateName').value.trim().toLowerCase();
+            
+            if (!certNumber) {
+                alert('Please enter a certificate number');
+                return;
+            }
+            
+            // Find certificate in database
+            const certificate = certificateDatabase.find(cert => 
+                cert.certNumber.toLowerCase() === certNumber.toLowerCase()
+            );
+            
+            if (!certificate) {
+                document.getElementById('certResult').classList.add('hidden');
+                alert('Certificate not found in our system. Please check the number and try again.');
+                return;
+            }
+            
+            // Optional name verification
+            if (graduateName && !certificate.name.toLowerCase().includes(graduateName)) {
+                document.getElementById('certResult').classList.add('hidden');
+                alert('Name does not match certificate record. Please check and try again.');
+                return;
+            }
+            
+            // Display certificate details
+            document.getElementById('displayCertNumber').textContent = certificate.certNumber;
+            document.getElementById('displayName').textContent = certificate.name;
+            document.getElementById('displayInstitution').textContent = certificate.institution;
+            document.getElementById('displayDegree').textContent = certificate.degree;
+            document.getElementById('displaySpecialization').textContent = certificate.specialization;
+            document.getElementById('displayGradDate').textContent = certificate.gradDate;
+            document.getElementById('displayPhoto').src = certificate.photo;
+            document.getElementById('displayPhoto').alt = `Verified graduate photo of ${certificate.name}`;
+            
+            // Set status
+            const statusElement = document.getElementById('certStatus');
+            if (certificate.status === 'active') {
+                statusElement.textContent = 'VALID';
+                statusElement.className = 'px-4 py-1 rounded-full text-white font-bold bg-green-500';
+                document.getElementById('verificationStatement').textContent = 
+                    `This certificate has been successfully verified as authentic and is currently active in our records. ${certificate.name} graduated from ${certificate.institution} on ${certificate.gradDate} with a ${certificate.degree}.`;
+            } else {
+                statusElement.textContent = 'REVOKED';
+                statusElement.className = 'px-4 py-1 rounded-full text-white font-bold bg-red-500';
+                document.getElementById('verificationStatement').textContent = 
+                    `WARNING: This certificate has been revoked and is no longer valid. Please contact ${certificate.institution} for more information.`;
+            }
+            
+            // Show results
+            document.getElementById('certResult').classList.remove('hidden');
+        }
+
+        // Print certificate
+        function printCertificate() {
+            window.print();
+        }
+
+        // Download PDF (mock functionality)
+        function downloadCertificate() {
+            alert('This would initiate a PDF download in a production environment. For this demo, printing is available.');
+        }
+
+        // Initialize - show home section
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
